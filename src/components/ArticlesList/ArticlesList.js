@@ -8,8 +8,6 @@ export function ArticlesList() {
   const dispatch = useDispatch();
   const articlesList = useSelector(state => state.ids);
 
-  console.log(articlesList);
-
   useEffect(() => {
     if (articlesList?.status === "success") {
       return;
@@ -56,7 +54,6 @@ export function ArticlesList() {
 
   return (
     <Fragment>
-      
       <Box 
         display='flex' 
         justifyContent='flex-end'
@@ -74,6 +71,5 @@ export function ArticlesList() {
         {articlesList.data.map(id => <ArticleBlock key={id} id={id} />)}
       </main>
     </Fragment>
-    
-    )
+  )
 }
