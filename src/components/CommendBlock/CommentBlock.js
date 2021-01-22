@@ -44,6 +44,7 @@ export function CommentBlock({ id }) {
       </Box>
     );
   }
+  
   const { data } = comment;
 
   if (data.deleted) {

@@ -109,7 +109,7 @@ export function Article({ match }) {
         </footer>
       </article>
       <div className="article__addComment">
-        <form method="post" action="comment" className="article__form form">
+        <form className="article__form form">
           <textarea 
             type="text" 
             rows="6" 

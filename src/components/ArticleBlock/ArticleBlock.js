@@ -25,16 +25,16 @@ export function ArticleBlock({ id }) {
     dispatch(fetchArticleById(id));
   }, [id]);
 
-  if (articles === undefined || articles === null || articles.status === "loading") {
+  if (!articles || articles.status === "loading") {
     return (
       <div className="article__loading loading">
-        <div className="loading__titleContainer"></div>
-        <div className="loading__infoContainer"></div>
+        <div className="loading__titleContainer"/>
+        <div className="loading__infoContainer"/>
       </div>
     );
   }
 
-  if (articles === undefined || articles === null || articles.status === "failure") {
+  if (!articles || articles.status === "failure") {
     return (
       <div className="article__loading loading">
         Error, refresh that page!
@@ -42,8 +42,6 @@ export function ArticleBlock({ id }) {
     );
   }
   
-  
-
   const { data } = articles;
 
   return (

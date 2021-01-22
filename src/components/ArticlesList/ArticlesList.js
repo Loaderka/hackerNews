@@ -13,7 +13,6 @@ export function ArticlesList() {
       return;
     }
     dispatch(fetchArticlesList());
-    // раз в минуту перезапрашивать список айдишников
   }, [])
 
   function refreshArticlesList() {
