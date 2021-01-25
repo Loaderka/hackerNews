@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { getTime } from "../../utils/mainUtils";
-import { CommentBlock } from "../CommendBlock/CommentBlock";
+import { CommentBlock } from "../CommentBlock/CommentBlock";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArticleById } from "../../thunk/fetchArticleById";
 import { Button, Input, Box, Link as LinkUi, CircularProgress } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Interweave from "interweave";
 
-import "./Article.css";
+import styles from './Article.module.css';
 
 export function Article({ match }) {
   const [timeoutId, setTimeoutId] = useState(null);
@@ -59,7 +59,7 @@ export function Article({ match }) {
   const { data } = article;
 
   return (
-    <div className="article">
+    <div className={styles.article}>
       <Box 
         display="flex" 
         justifyContent="space-between" 
@@ -81,8 +81,8 @@ export function Article({ match }) {
           refresh
         </Button>
       </Box>
-      <article className="article__inner">
-        <header className="article__title">
+      <article className={styles.inner}>
+        <header className={styles.title}>
           <LinkUi 
             href={data.url} 
             color="inherit" 
@@ -92,11 +92,11 @@ export function Article({ match }) {
           </LinkUi>
         </header>
         {data.text !== undefined && (
-          <section className="article__text">
+          <section className={styles.text}>
             <Interweave content={data.text} />
           </section>
         )}
-        <footer className="article__info">
+        <footer className={styles.info}>
           Posted by
           <LinkUi 
             href="#" 
@@ -105,15 +105,15 @@ export function Article({ match }) {
           >
             {data.by}
           </LinkUi>
-          <time className='article__time'>{getTime(data.time)}</time>
+          <time>{getTime(data.time)}</time>
         </footer>
       </article>
-      <div className="article__addComment">
-        <form className="article__form form">
+      <div className={styles.addComment}>
+        <form className={styles.form}>
           <textarea 
             type="text" 
             rows="6" 
-            className="form__textarea"
+            className={styles.textarea}
           />
           <Input 
             type="submit" 
@@ -126,7 +126,7 @@ export function Article({ match }) {
         </form>
       </div>
       {data.kids !== undefined && (
-        <div className="article__comments">
+        <div className={styles.comments}>
           {data.kids.map((id) => (
             <CommentBlock id={id} key={id} />
           ))}

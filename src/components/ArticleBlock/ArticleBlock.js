@@ -11,8 +11,7 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import GradeIcon from "@material-ui/icons/Grade";
 import { Link as LinkUi } from "@material-ui/core";
 
-
-import "./ArticleBlock.css";
+import styles from './ArticleBlock.module.css';
 
 export function ArticleBlock({ id }) {
   const dispatch = useDispatch();
@@ -27,9 +26,9 @@ export function ArticleBlock({ id }) {
 
   if (!articles || articles.status === "loading") {
     return (
-      <div className="article__loading loading">
-        <div className="loading__titleContainer"/>
-        <div className="loading__infoContainer"/>
+      <div className={styles.loading}>
+        <div className={styles.titleContainer}/>
+        <div className={styles.infoContainer}/>
       </div>
     );
   }
@@ -45,27 +44,27 @@ export function ArticleBlock({ id }) {
   const { data } = articles;
 
   return (
-    <article className="articleBlock">
-      <Link to={`/${id}`} className="articleBlock__link">
+    <article className={styles.main}>
+      <Link to={`/${id}`} className={styles.link}>
         {data.title}
       </Link>
-      <div className="articleBlock__info info">
-        <span className="info__item">
-          <PersonIcon fontSize="small" className="info__icon" />
+      <div className={styles.info}>
+        <span className={styles.item}>
+          <PersonIcon fontSize="small" className="info__icon" className={styles.icon}/>
           <LinkUi href='#' color='inherit'>
             {data.by}
           </LinkUi>
         </span>
-        <span className="info__item">
-          <ChatBubbleOutlineIcon fontSize="small" className="info__icon" />
+        <span className={styles.item}>
+          <ChatBubbleOutlineIcon fontSize="small" className="info__icon" className={styles.icon}/>
           {data.descendants}
         </span>
-        <span className="info__item">
-          <GradeIcon fontSize="small" className="info__icon" />
+        <span className={styles.item}>
+          <GradeIcon fontSize="small" className="info__icon" className={styles.icon}/>
           {data.score}
         </span>
-        <span className="info__item">
-          <ScheduleIcon fontSize="small" className="info__icon" />
+        <span className={styles.item}>
+          <ScheduleIcon fontSize="small" className="info__icon" className={styles.icon}/>
           <time>{getTime(data.time)}</time>
         </span>
       </div>

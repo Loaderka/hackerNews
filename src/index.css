@@ -16,51 +16,6 @@ pre {
   box-sizing: border-box;
 }
 
-.articleBlock__loading {
-  text-align: center;
-  min-height: 75px;
-}
-
-.loading {
-  margin-bottom: 15px;
-}
-
-.loading__titleContainer {
-  height: 35px;
-  background-color: #FF4400;
-  animation: loadingTitle linear 4s infinite;
-}
-
-.loading__infoContainer {
-  height: 40px;
-  background-color: #2c2c2c;
-  animation: loadingInfo linear 4s infinite;
-}
-
-@keyframes loadingTitle {
-  0% {
-    width: 0%;
-  }
-  25% {
-    width: 40%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes loadingInfo {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: .5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 767px) {
   .MuiBox-root {
     padding: 10px 0 !important;
